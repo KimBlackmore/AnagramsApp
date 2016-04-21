@@ -12,18 +12,18 @@ class Word <ActiveRecord::Base
 	def self.find_anagrams(word)
 		all_words = []
 		for i in 0..2
-			ch = word[i]
-			new_word = ch.to_s
-			letter = ch
-	 
-	 		remaining_letters = word.to_s.delete(ch)
-			new_word << remaining_letters
-			all_words << new_word
+	 		remaining_letters = word.to_s.delete(word[i])
 
-			new_word = word[i]
-			new_word << reverse_letters(remaining_letters.chars).join
-			all_words << new_word		
+			new_word =word[i] + remaining_letters
+			if new_word!=word && Word.find_by_text(new_word).present?
+				all_words << new_word
+			end
+
+			new_word = word[i] + reverse_letters(remaining_letters.chars).join
+			if new_word!=word && Word.find_by_text(new_word).present?
+				all_words << new_word
+			end	
 		end
-		return all_words
+		return all_words.uniq
 	end
 end

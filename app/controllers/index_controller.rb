@@ -3,7 +3,7 @@ get '/' do
 end
 
 get '/anagrams/:word' do
-	@word = params[:word]
+	@word = params[:word].downcase
 	@anagrams = Word.find_anagrams(@word)
 	erb :show
 end
