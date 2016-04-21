@@ -1,0 +1,14 @@
+<h2>Anagrams for the word </h2>
+<h1 class="line"> <%= "#{@word.upcase}" %></h1>
+
+<h2 class="results">
+
+		<% @anagrams.each do |word| %>
+			<%= "#{word}" %> <br> 
+		<% end %>
+	
+</h2>
+
+<div class = 'errors'>
+	<%= @error %>
+</div>
