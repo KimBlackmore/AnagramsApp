@@ -22,7 +22,9 @@ GEM
     i18n (0.7.0)
     json (1.8.2)
     minitest (5.5.1)
+    pg (0.18.4)
     pg (0.18.4-x86-mingw32)
+    puma (3.4.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -62,6 +64,7 @@ DEPENDENCIES
   activerecord
   faker
   pg
+  puma
   rack
   rack-test
   rake
